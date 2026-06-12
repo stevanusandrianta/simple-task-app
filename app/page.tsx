@@ -26,8 +26,7 @@ export default function Home() {
     setTasks(tasks.filter(t => t.id !== id))
   }
 
-  // 🐛 BUG: should be tasks.filter(t => t.completed).length
-  const completedCount = tasks.length
+  const completedCount = tasks.filter(t => t.completed).length
 
   return (
     <main className="min-h-screen bg-gray-50 flex flex-col items-center py-16 px-4">
@@ -46,7 +45,7 @@ export default function Home() {
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && addTask()}
             placeholder="Add a task..."
-            className="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
           <button
             data-testid="add-button"
